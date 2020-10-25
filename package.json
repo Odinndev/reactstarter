@@ -2,21 +2,37 @@
   "name": "react",
   "version": "1.0.0",
   "description": "React example starter project",
-  "keywords": ["react", "starter"],
+  "keywords": [
+    "react",
+    "starter"
+  ],
   "main": "src/index.js",
   "dependencies": {
+    "autoprefixer-stylus": "^1.0.0",
+    "craco-plugin-scoped-css": "^1.1.0",
+    "npm-run-all": "^4.1.5",
+    "postcss": "^8.1.4",
     "react": "17.0.0",
     "react-dom": "17.0.0",
-    "react-scripts": "3.4.3"
+    "react-scripts": "3.4.3",
+    "stylus": "^0.54.8",
+    "stylus-loader": "^4.1.1"
   },
   "devDependencies": {
     "typescript": "3.8.3"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+   "build-css": "stylus -c src/styl/foo.styl --out src/css/foo.css",
+   "watch-css": "yarn run build-css && stylus -c -w src/styl/foo.styl --out src/css/foo.css",
+   "start-js": "react-scripts start",
+   "start": "npm-run-all -p watch-css start-js",
+   "build-js": "react-scripts build",
+   "build": "npm-run-all build-css build-js"
   },
-  "browserslist": [">0.2%", "not dead", "not ie <= 11", "not op_mini all"]
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
 }
