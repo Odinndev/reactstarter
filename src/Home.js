@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+import app from "./base";
 
 export default function Home() {
 
@@ -6,7 +7,7 @@ export default function Home() {
 
     <div className="home">
 
-     This is Home
+     <button onClick={() => app.auth().signOut()} />
 
     </div>
 
