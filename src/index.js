@@ -1,8 +1,16 @@
 import React, {Component} from 'react'
 import ReactDOM from 'react-dom'
+import {
+  BrowserRouter,
+  Routes,
+  Route
+} from "react-router-dom";
 import {Helmet} from "react-helmet";
 import { Parallax } from 'react-parallax';
 import './css/foo.css'
+import Home from "./Home.js";
+import Login from "./Login.js";
+import SignUp from "./SignUp.js";
 
 class App extends Component {
   render() {
@@ -18,7 +26,17 @@ class App extends Component {
        <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet"/>
       </Helmet>
 
-      
+      <div className="head">
+      virkar að pusha to github
+      </div>{/* .head */}
+
+      <BrowserRouter>
+      <Routes>
+          <Route exact path="/" component={Home} />
+          <Route exact path="/login" component={Login} />
+          <Route exact path="/register" component={SignUp} />
+      </Routes>
+      </BrowserRouter>
 
       </div>
     )
